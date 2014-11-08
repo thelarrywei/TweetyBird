@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5A0CB031-D97A-44B0-AF20-41826D0C8338</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TweetyBird</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>38DC2198AF3951BDB7C23DE18EEEF364E6CCF1B5</key>
+		<string>https://github.com/thelarrywei/TweetyBird.git</string>
+		<key>9903A21A7F42CCC9FFDFB80FC4758248A66828D1</key>
+		<string>https://github.com/thelarrywei/TweetyBird.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TweetyBird.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>38DC2198AF3951BDB7C23DE18EEEF364E6CCF1B5</key>
+		<string>..</string>
+		<key>9903A21A7F42CCC9FFDFB80FC4758248A66828D1</key>
+		<string>../TweetyBird</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/thelarrywei/TweetyBird.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>38DC2198AF3951BDB7C23DE18EEEF364E6CCF1B5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>38DC2198AF3951BDB7C23DE18EEEF364E6CCF1B5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TweetyBird</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9903A21A7F42CCC9FFDFB80FC4758248A66828D1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TweetyBird</string>
+		</dict>
+	</array>
+</dict>
+</plist>
