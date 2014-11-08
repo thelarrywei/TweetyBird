@@ -5,24 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5A0CB031-D97A-44B0-AF20-41826D0C8338</string>
+	<string>957BD552-1FA6-4C5D-8895-1FFD4A02C5E4</string>
 	<key>IDESourceControlProjectName</key>
 	<string>TweetyBird</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>81D3C8184646A8AFA8A516C385DE07C7FD98DA50</key>
 		<string>https://github.com/thelarrywei/TweetyBird.git</string>
-		<key>9903A21A7F42CCC9FFDFB80FC4758248A66828D1</key>
-		<string>https://github.com/thelarrywei/TweetyBird.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TweetyBird.xcworkspace</string>
+	<string>TweetyBird.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>81D3C8184646A8AFA8A516C385DE07C7FD98DA50</key>
-		<string>..</string>
-		<key>9903A21A7F42CCC9FFDFB80FC4758248A66828D1</key>
-		<string>../TweetyBird</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/thelarrywei/TweetyBird.git</string>
@@ -37,14 +33,6 @@
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>81D3C8184646A8AFA8A516C385DE07C7FD98DA50</string>
-			<key>IDESourceControlWCCName</key>
-			<string>TweetyBird</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9903A21A7F42CCC9FFDFB80FC4758248A66828D1</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TweetyBird</string>
 		</dict>

@@ -116,7 +116,7 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
     Tweet *tweet = self.tweets[indexPath.row];
-    cell.tweet = tweet;
+    //cell.tweet = tweet;
     
     //favorite
     if (tweet.isFavorited) {

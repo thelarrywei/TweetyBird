@@ -24,23 +24,23 @@
 
 - (IBAction)onReplyButton:(id)sender {
     composerViewController *vc = [[composerViewController alloc] init];
-    vc.replyID = self.tweet.tweetID;
+    //vc.replyID = self.tweet.tweetID;
     [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
     
 }
 - (IBAction)onRetweetButton:(id)sender {
-    [[TwitterClient sharedInstance] retweet:self.tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
+    /*[[TwitterClient sharedInstance] retweet:self.tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
         NSLog(@"Retweeted");
         [self.retweetButton.imageView setImage:[UIImage imageNamed:@"retweet_on"]];
-    }];
+    }];*/
 
 }
 - (IBAction)onFavoriteButton:(id)sender {
-    [[TwitterClient sharedInstance] favorite:self.tweet.tweetID completion:^(Tweet * tweet, NSError * error) {
+    /*[[TwitterClient sharedInstance] favorite:self.tweet.tweetID completion:^(Tweet * tweet, NSError * error) {
         NSLog(@"Favorited");
         
         [self.favoriteButton.imageView setImage:[UIImage imageNamed:@"favorite_on"]];
-    }];
+    }];*/
 }
 
 
