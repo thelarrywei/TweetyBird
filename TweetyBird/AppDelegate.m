@@ -11,6 +11,7 @@
 #import "TwitterClient.h"
 #import "User.h"
 #import "HomeViewController.h"
+#import "HamburgerViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,10 +20,10 @@
 @implementation AppDelegate
 
 - (void) beginSession {
-    HomeViewController *vc = [[HomeViewController alloc] init];
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    HamburgerViewController *vc = [[HamburgerViewController alloc] init];
+    //UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     NSLog(@"Should launch new view controller");
-    self.window.rootViewController = nvc;
+    self.window.rootViewController = vc;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

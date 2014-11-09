@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		69C68D20917CB7D737EAEF3A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3C573D91B724839AE71915 /* libPods.a */; };
+		DD2CA55C1A0FE20500467C46 /* HamburgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2CA55A1A0FE20500467C46 /* HamburgerViewController.m */; };
+		DD2CA55D1A0FE20500467C46 /* HamburgerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2CA55B1A0FE20500467C46 /* HamburgerViewController.xib */; };
 		DD3ED5AC1A0693C600360B42 /* favorite_hover.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3ED5A41A0693C600360B42 /* favorite_hover.png */; };
 		DD3ED5AD1A0693C600360B42 /* favorite_on.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3ED5A51A0693C600360B42 /* favorite_on.png */; };
 		DD3ED5AE1A0693C600360B42 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3ED5A61A0693C600360B42 /* favorite.png */; };
@@ -50,6 +52,9 @@
 		3F3C573D91B724839AE71915 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97E12E8AADFBCE59797F42A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C4143563511375AC52AE9884 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DD2CA5591A0FE20500467C46 /* HamburgerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HamburgerViewController.h; sourceTree = "<group>"; };
+		DD2CA55A1A0FE20500467C46 /* HamburgerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HamburgerViewController.m; sourceTree = "<group>"; };
+		DD2CA55B1A0FE20500467C46 /* HamburgerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HamburgerViewController.xib; sourceTree = "<group>"; };
 		DD3ED5A41A0693C600360B42 /* favorite_hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_hover.png; sourceTree = "<group>"; };
 		DD3ED5A51A0693C600360B42 /* favorite_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_on.png; sourceTree = "<group>"; };
 		DD3ED5A61A0693C600360B42 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
@@ -241,6 +246,9 @@
 				DD3ED5C41A071A4D00360B42 /* composerViewController.h */,
 				DD3ED5C51A071A4D00360B42 /* composerViewController.m */,
 				DD3ED5C61A071A4D00360B42 /* composerViewController.xib */,
+				DD2CA5591A0FE20500467C46 /* HamburgerViewController.h */,
+				DD2CA55A1A0FE20500467C46 /* HamburgerViewController.m */,
+				DD2CA55B1A0FE20500467C46 /* HamburgerViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -344,6 +352,7 @@
 				DD3ED5B01A0693C600360B42 /* reply.png in Resources */,
 				DDDDFC8E1A00CB3F0029362F /* Main.storyboard in Resources */,
 				DDDDFC931A00CB3F0029362F /* LaunchScreen.xib in Resources */,
+				DD2CA55D1A0FE20500467C46 /* HamburgerViewController.xib in Resources */,
 				DDDDFC901A00CB3F0029362F /* Images.xcassets in Resources */,
 				DD3ED5B11A0693C600360B42 /* retweet_hover.png in Resources */,
 				DD3ED5AC1A0693C600360B42 /* favorite_hover.png in Resources */,
@@ -411,6 +420,7 @@
 				DDDDFC881A00CB3F0029362F /* AppDelegate.m in Sources */,
 				DDDDFC851A00CB3F0029362F /* main.m in Sources */,
 				DDDDFCBE1A0367810029362F /* HomeViewController.m in Sources */,
+				DD2CA55C1A0FE20500467C46 /* HamburgerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
