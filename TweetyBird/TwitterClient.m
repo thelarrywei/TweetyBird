@@ -84,11 +84,11 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
 }
 
 - (void)tweetsFromTimeline:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
-  [self GET:@"1.1/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [self GET:@"1.1/statuses/home_timeline.json?include_my_retweet=1" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject isKindOfClass:[NSArray class]]) {
             NSArray *tweets = [Tweet tweetsWithArray:responseObject];
             completion(tweets, nil);
-            //NSLog(@"REPONSE: %@", responseObject);
+            NSLog(@"REPONSE: %@", responseObject);
         } else {
             // TODO: learn how to generate a useful NSError
             NSLog(@"response failed");
@@ -113,9 +113,36 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
         completion(nil, error);
     }];
 }
-- (void) favorite:(long)tweetID completion:(void (^)(Tweet *, NSError *))completion {
-    NSDictionary *params = [NSDictionary dictionaryWithObject:[NSNumber numberWithLong:tweetID] forKey:@"id"];
-    [self POST:@"1.1/favorites/create.json" parameters:params
+- (void) favorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion {
+    NSString *favoriteURLString;
+    if (tweet.userFavorited) {
+        favoriteURLString = [NSString stringWithFormat:@"1.1/favorites/create.json?id=%@", tweet.tweetID];
+    }
+    else {
+        favoriteURLString = [NSString stringWithFormat:@"1.1/favorites/destroy.json?id=%@", tweet.tweetID];
+    }
+    [self POST:favoriteURLString parameters:nil
+       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+           NSLog(@"Succeded in favoriting");
+           Tweet *t = [[Tweet alloc] initWithDictionary:responseObject];
+           completion (t, nil);
+       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+           NSLog(@"Tried to favorite but did not succeed");
+           completion (nil, error);
+       }];
+}
+
+- (void) retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion {
+    NSString *retweetURLString;
+    if (tweet.userRetweeted) {
+        retweetURLString = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweet.tweetID];
+        NSLog(@"********************RETWEET");
+    }
+    else {
+        retweetURLString = [NSString stringWithFormat:@"1.1/statuses/destroy/%@.json", tweet.retweetID];
+        NSLog(@"********************DESTROYING RETWEET");
+    }
+    [self POST: retweetURLString parameters:nil
        success:^(AFHTTPRequestOperation *operation, id responseObject) {
            NSLog(@"Succeded in retweeting");
            Tweet *t = [[Tweet alloc] initWithDictionary:responseObject];
@@ -124,19 +151,8 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
            NSLog(@"Tried to retweet but did not succeed");
            completion (nil, error);
        }];
-}
-
-- (void) retweet:(long)tweetID completion:(void (^)(Tweet *, NSError *))completion {
-    [self POST:[NSString stringWithFormat:@"1.1/statuses/retweet/%ld.json", tweetID] parameters:nil
-       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-           NSLog(@"Succeded in retweeting");
-           Tweet *t = [[Tweet alloc] initWithDictionary:responseObject];
-           completion (t, nil);
-       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-           NSLog(@"Tried to retweet but did not succeed");
-           completion (nil, error);
-       }];
 
 }
+
 
 @end

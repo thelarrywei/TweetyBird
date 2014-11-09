@@ -22,9 +22,10 @@
 
 - (void)tweetsFromTimeline:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion;
 
-- (void) favorite:(long)tweetID completion:(void (^)(Tweet *, NSError *))completion;
+- (void) favorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 
-- (void) retweet:(long)tweetID completion:(void (^)(Tweet *, NSError *))completion;
+- (void) retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
+- (void) undoRetweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 
 - (void) reply:(long)tweetID completion:(void (^)(Tweet *, NSError *))completion;
 - (void) postTweet:(NSString *)composedTweet completion:(void (^)(Tweet *, NSError *))completion;

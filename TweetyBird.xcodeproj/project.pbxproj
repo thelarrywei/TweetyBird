@@ -32,7 +32,6 @@
 		DDDDFCB11A00D12C0029362F /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFCB01A00D12C0029362F /* TwitterClient.m */; };
 		DDDDFCB51A0220190029362F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFCB41A0220190029362F /* User.m */; };
 		DDDDFCB81A02202A0029362F /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFCB71A02202A0029362F /* Tweet.m */; };
-		DDDDFCBA1A0221750029362F /* tweety.png in Resources */ = {isa = PBXBuildFile; fileRef = DDDDFCB91A0221750029362F /* tweety.png */; };
 		DDDDFCBE1A0367810029362F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFCBC1A0367810029362F /* HomeViewController.m */; };
 		DDDDFCBF1A0367810029362F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDDDFCBD1A0367810029362F /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
@@ -87,7 +86,6 @@
 		DDDDFCB41A0220190029362F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		DDDDFCB61A02202A0029362F /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		DDDDFCB71A02202A0029362F /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
-		DDDDFCB91A0221750029362F /* tweety.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweety.png; sourceTree = "<group>"; };
 		DDDDFCBB1A0367810029362F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DDDDFCBC1A0367810029362F /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		DDDDFCBD1A0367810029362F /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 		DDDDFC811A00CB3F0029362F /* TweetyBird */ = {
 			isa = PBXGroup;
 			children = (
-				DDDDFCB91A0221750029362F /* tweety.png */,
 				DDDDFC861A00CB3F0029362F /* AppDelegate.h */,
 				DDDDFC871A00CB3F0029362F /* AppDelegate.m */,
 				DDDDFC891A00CB3F0029362F /* ViewController.h */,
@@ -339,7 +336,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDDDFCBA1A0221750029362F /* tweety.png in Resources */,
 				DD3ED5AF1A0693C600360B42 /* reply_hover.png in Resources */,
 				DD3ED5C81A071A4D00360B42 /* composerViewController.xib in Resources */,
 				DD3ED5B21A0693C600360B42 /* retweet_on.png in Resources */,

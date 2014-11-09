@@ -12,8 +12,8 @@
 @class TweetCell;
 @protocol TweetCellDelegate <NSObject>
 
-- (void)TweetCell:(TweetCell *)cell onReplyButtonClicked:(NSString *)replyHandle tweetReplyID:(long)replyID;
-- (void)TweetCell:(TweetCell *)cell cellDidChange:(Tweet *)tweet;
+//- (void)TweetCell:(TweetCell *)cell onReplyButtonClicked:(NSString *)replyHandle tweetReplyID:(long)replyID;
+- (void)onCellDidChange:(Tweet *)tweet;
 
 @end
 @interface TweetCell : UITableViewCell
@@ -29,5 +29,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *userImageTopMargin;
+@property (weak, nonatomic) IBOutlet UILabel *retweetCount;
+@property (weak, nonatomic) IBOutlet UILabel *favoriteCount;
 
+@property (strong, nonatomic) Tweet *tweet;
+@property (strong, nonatomic) Tweet *displayTweet;
+
+@property (nonatomic, weak) id <TweetCellDelegate> delegate;
+- (void) loadTweet:(Tweet *)tweet;
 @end

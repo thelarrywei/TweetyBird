@@ -19,7 +19,7 @@
 
 @property (nonatomic, retain) UIBarButtonItem *logoutButton;
 @property (nonatomic, retain) UIBarButtonItem *composeButton;
-@property (strong, nonatomic) NSMutableArray *tweets;
+@property (strong, nonatomic) NSArray *tweets;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 
@@ -46,7 +46,7 @@
 
 - (void)refreshTweets {
     [[TwitterClient sharedInstance] tweetsFromTimeline:nil completion:^(NSArray *tweets, NSError *error) {
-        [self.tweets addObjectsFromArray:tweets];
+        self.tweets = tweets;
         /*for (Tweet *t in tweets) {
          //NSLog(@"TWEET: %@", t.text);
          }*/
@@ -86,18 +86,10 @@
     self.tableView.dataSource = self;
     
     //Set up custom cell
+    //[self.tableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
     [self.tableView registerNib:[UINib nibWithNibName:@"TweetCell" bundle:nil]forCellReuseIdentifier:@"TweetCell"];
     
-    self.tweets = [[NSMutableArray alloc] init];
-    [self reloadInputViews];
-    [[TwitterClient sharedInstance] tweetsFromTimeline:nil completion:^(NSArray *tweets, NSError *error) {
-        [self.tweets addObjectsFromArray:tweets];
-        /*for (Tweet *t in tweets) {
-         //NSLog(@"TWEET: %@", t.text);
-         }*/
-        
-        [self.tableView reloadData];
-    }];
+    [self refreshTweets];
 
 
 }
@@ -114,34 +106,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
-    
-    Tweet *tweet = self.tweets[indexPath.row];
-    //cell.tweet = tweet;
-    
-    //favorite
-    if (tweet.isFavorited) {
-        [cell.favoriteButton.imageView setImage:[UIImage imageNamed:@"favorite_on"]];
-    }
-    
-    //retweet
-    if (tweet.isRetweeted) {
-        [cell.retweetButton.imageView setImage:[UIImage imageNamed:@"retweet_on"]];
-    }
-    cell.nameLabel.text = tweet.user.name;
-    cell.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenname];
-    
-    cell.timestampLabel.text = [self formatDate:tweet.createdAt];
-    
-    //Set up image
-    cell.userImage.layer.cornerRadius = 3;
-    cell.userImage.clipsToBounds = YES;
-    [cell.userImage setImageWithURL:[NSURL URLWithString:tweet.user.profileImageURL]];
-    
-    //set up tweet
-    cell.tweetLabel.text = tweet.text;
-    
+    [cell loadTweet:self.tweets[indexPath.row]];
+    cell.delegate = self;
     return cell;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
