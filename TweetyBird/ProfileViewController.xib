@@ -25,7 +25,7 @@
                     </constraints>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7aX-pW-hGv">
-                    <rect key="frame" x="0.0" y="48" width="320" height="520"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
@@ -33,13 +33,13 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="Nut-JK-xir" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7Pp-pR-r3D"/>
+                <constraint firstItem="Nut-JK-xir" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5qt-Bf-Pqk"/>
                 <constraint firstItem="7aX-pW-hGv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="97Y-5A-5hD"/>
-                <constraint firstItem="Nut-JK-xir" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CKH-Gx-yiW"/>
-                <constraint firstItem="7aX-pW-hGv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="DvJ-c4-xT5"/>
+                <constraint firstItem="7aX-pW-hGv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DvJ-c4-xT5"/>
+                <constraint firstAttribute="trailing" secondItem="Nut-JK-xir" secondAttribute="trailing" id="UfQ-ac-xnE"/>
+                <constraint firstItem="Nut-JK-xir" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="a8E-pb-eDb"/>
                 <constraint firstAttribute="trailing" secondItem="7aX-pW-hGv" secondAttribute="trailing" id="mfh-pm-zUJ"/>
                 <constraint firstAttribute="bottom" secondItem="7aX-pW-hGv" secondAttribute="bottom" id="ocr-dx-dx1"/>
-                <constraint firstAttribute="trailing" secondItem="Nut-JK-xir" secondAttribute="trailing" id="qcb-Oq-UoB"/>
             </constraints>
             <point key="canvasLocation" x="397" y="543"/>
         </view>

@@ -13,6 +13,7 @@
 #import "NSDate+TimeAgo.h"
 #import "composerViewController.h"
 #import "LoginViewController.h"
+#import "ProfileViewController.h"
 
 
 
@@ -30,6 +31,13 @@
 
 
 @implementation HomeViewController
+
+- (void)onProfileTapped:(User *)user {
+    NSLog(@"Received delegate event");
+    ProfileViewController *vc = [[ProfileViewController alloc]init];
+    vc.user = user;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (NSString *)formatDate:(NSDate *)date {
     NSString *ago = [date dateTimeAgo];

@@ -13,7 +13,7 @@
 @protocol TweetCellDelegate <NSObject>
 
 //- (void)TweetCell:(TweetCell *)cell onReplyButtonClicked:(NSString *)replyHandle tweetReplyID:(long)replyID;
-- (void)onCellDidChange:(Tweet *)tweet;
+- (void)onProfileTapped:(User *)user;
 
 @end
 @interface TweetCell : UITableViewCell

@@ -32,7 +32,14 @@ NSString * const USER_DID_LOGOUT_NOTIFICATION = @"USER_DID_LOGIN_NOTIFICATION";
         self.profileImageURL = dictionary[@"profile_image_url"];
         self.tagline = dictionary[@"description"];
         
-        self.headerURL = dictionary[@"profile_background_image_url"];
+        
+        if (dictionary[@"profile_banner_url"] != nil && false) {
+            self.headerURL = [NSString stringWithFormat:@"%@/mobile_retina", dictionary[@"profile_banner_url"]];
+            NSLog(@"User %@ has banner URL %@", self.name, self.headerURL);
+        }
+        else {
+            self.headerURL = dictionary[@"profile_background_image_url"];
+        }
         self.tweetCount = [dictionary[@"statuses_count"] intValue];
         self.followerCount = [dictionary[@"followers_count"] intValue];
         self.followingCount = [dictionary[@"friends_count"] intValue];

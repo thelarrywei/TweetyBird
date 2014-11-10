@@ -18,7 +18,7 @@
 
 - (void)awakeFromNib {
     
-    //cell.tweet = tweet;
+    
    
 }
 - (IBAction)onRetweetButton:(id)sender {
@@ -43,6 +43,7 @@
 
     // Configure the view for the selected state
 }
+
 
 - (IBAction)onReplyButton:(id)sender {
     NSLog(@"Button pressed");
@@ -109,6 +110,10 @@
         self.favoriteCount.hidden = YES;
     }
 }
+- (IBAction)onTapProfile:(id)sender {
+    NSLog(@"Profile tapped");
+    [self.delegate onProfileTapped:self.displayTweet.user];
+}
     
 - (void)loadTweet:(Tweet *)tweet {
     _tweet = tweet;
@@ -154,6 +159,8 @@
     
     //time
     self.timestampLabel.text = [self getTimeAgo:self.displayTweet.createdAt];
+    
+ 
 
 }
 

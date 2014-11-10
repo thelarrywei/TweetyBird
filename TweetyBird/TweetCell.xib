@@ -77,14 +77,14 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retweeted" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Di9-ZW-jtO">
-                        <rect key="frame" x="75" y="-2" width="237" height="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Retweeted" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Di9-ZW-jtO">
+                        <rect key="frame" x="75" y="-2" width="237" height="15"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yy-j2-etY">
-                        <rect key="frame" x="53" y="-2" width="14" height="14"/>
+                    <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yy-j2-etY">
+                        <rect key="frame" x="53" y="-2" width="14" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="AjA-Qf-Bd3"/>
                             <constraint firstAttribute="width" constant="14" id="q6i-vD-CVa"/>
@@ -152,6 +152,19 @@
                             <action selector="onFavoriteButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8Cb-di-HoD"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIn-1i-ukq">
+                        <rect key="frame" x="8" y="10" width="65" height="63"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="GOZ-Aq-eqG"/>
+                            <constraint firstAttribute="height" constant="63" id="v6x-zJ-a5J"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="onTapProfile:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lZ3-zL-aLP"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="DWy-2u-Gk9" firstAttribute="trailing" secondItem="1yy-j2-etY" secondAttribute="trailing" constant="-2" id="1ZM-qs-YRa"/>
@@ -159,6 +172,7 @@
                     <constraint firstAttribute="trailing" secondItem="dkr-gt-kLl" secondAttribute="trailing" constant="8" id="3e0-s7-owg"/>
                     <constraint firstItem="1Rh-LA-ihn" firstAttribute="leading" secondItem="du1-5g-9kB" secondAttribute="trailing" constant="49" id="3tl-ci-Pr8"/>
                     <constraint firstItem="tpg-zS-Aga" firstAttribute="top" secondItem="wNC-C4-yfA" secondAttribute="bottom" constant="2" id="4OT-Mr-dNy"/>
+                    <constraint firstItem="gIn-1i-ukq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="6wh-XU-gLn"/>
                     <constraint firstItem="wNC-C4-yfA" firstAttribute="bottom" secondItem="jLk-En-hjt" secondAttribute="bottom" id="8VV-az-L07"/>
                     <constraint firstItem="dkr-gt-kLl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wNC-C4-yfA" secondAttribute="trailing" constant="8" id="8uX-bC-HIv"/>
                     <constraint firstItem="mkv-H3-yH3" firstAttribute="leading" secondItem="86O-n7-y7O" secondAttribute="trailing" constant="8" id="9yw-Ti-1ks"/>
@@ -166,6 +180,7 @@
                     <constraint firstAttribute="bottom" secondItem="wWM-LZ-4ju" secondAttribute="bottom" constant="9.5" id="D44-E1-Btw"/>
                     <constraint firstItem="jLk-En-hjt" firstAttribute="top" secondItem="Di9-ZW-jtO" secondAttribute="bottom" constant="4" id="FLz-G3-s6d"/>
                     <constraint firstItem="wNC-C4-yfA" firstAttribute="leading" secondItem="jLk-En-hjt" secondAttribute="trailing" constant="8" id="H7T-vh-zzD"/>
+                    <constraint firstItem="gIn-1i-ukq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="HCD-bY-yjZ"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DWy-2u-Gk9" secondAttribute="bottom" constant="8" id="HWh-ti-pao"/>
                     <constraint firstAttribute="trailing" secondItem="Di9-ZW-jtO" secondAttribute="trailing" constant="8" id="IG3-yS-yq5"/>
                     <constraint firstItem="86O-n7-y7O" firstAttribute="leading" secondItem="du1-5g-9kB" secondAttribute="trailing" constant="4" id="IQE-W2-XIN"/>

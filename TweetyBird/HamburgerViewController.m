@@ -12,7 +12,7 @@
 #import "ProfileViewController.h"
 #import "TwitterClient.h"
 
-@interface HamburgerViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HamburgerViewController () <UITableViewDataSource, UITableViewDelegate, TweetCellDelegate>
 @property (weak, nonatomic) IBOutlet UIView *contentContainerView;
 @property (weak, nonatomic) IBOutlet UIView *menuContentView;
 

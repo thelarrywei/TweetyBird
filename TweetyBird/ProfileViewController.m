@@ -15,12 +15,12 @@
 #import "TweetCell.h"
 
 
-@interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, TweetCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *tweets;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopConstraint;
 
-@property (nonatomic, strong) User *user;
+
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerHeightConstrant;
 
@@ -32,6 +32,13 @@
 
 @implementation ProfileViewController
 
+- (void)onProfileTapped:(User *)user {
+    NSLog(@"Received delegate event");
+    ProfileViewController *vc = [[ProfileViewController alloc]init];
+    vc.user = user;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.tweets.count + 1;
@@ -41,12 +48,12 @@
     CGFloat contentOffset = scrollView.contentOffset.y;
     
     if (contentOffset < 0) {
-        self.headerHeightConstrant.constant = 150-contentOffset;
+        self.headerHeightConstrant.constant = 175-contentOffset;
         
     }
     else {
         if (self.headerHeightConstrant > 0)
-            self.headerHeightConstrant.constant = 150 - contentOffset;
+            self.headerHeightConstrant.constant = 175 - contentOffset;
         NSLog(@"Scrolling up, constraint %f, content offset %f.", self.tableViewTopConstraint.constant, contentOffset);
         //self.tableViewTopConstraint -=
         //self.tableViewTopConstraint.constant += contentOffset;
@@ -58,11 +65,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row > 0) {
-        ProfileViewController *vc = [[ProfileViewController alloc]init];
-        vc.user = self.tweets[indexPath.row-1];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
 }
 
 
@@ -86,6 +88,7 @@
     else {
         TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
         [cell loadTweet:self.tweets[indexPath.row - 1]];
+        cell.delegate = self;
         return cell;
     }
 }
@@ -116,25 +119,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (self.user == nil) {
+    self.headerHeightConstrant.constant = 175;
+    
+    if (self.user == nil || self.user == [User currentUser]) {
         self.user = [User currentUser];
+        
+        self.composeButton =[[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(onComposeButton)];
+        self.navigationItem.rightBarButtonItem = self.composeButton;
+        self.title = @"Profile";
     }
-    
-    
+    else {
+        self.title = self.user.name;
+    }
+
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshTweets) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.353 green:0.69 blue:1 alpha:1];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.Title = @"Profile";
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     
     self.logoutButton =[[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutButton)];
     //self.navigationItem.leftBarButtonItem = self.logoutButton;
-    
-    self.composeButton =[[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(onComposeButton)];
-    self.navigationItem.rightBarButtonItem = self.composeButton;
     
 
     
