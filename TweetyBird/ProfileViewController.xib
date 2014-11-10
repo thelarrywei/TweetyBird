@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController">
+            <connections>
+                <outlet property="headerHeightConstrant" destination="uzw-Cu-O9g" id="Rzl-sv-QYd"/>
+                <outlet property="headerImage" destination="Nut-JK-xir" id="8L6-ey-3fC"/>
+                <outlet property="tableView" destination="7aX-pW-hGv" id="67d-D5-Kjz"/>
+                <outlet property="tableViewTopConstraint" destination="DvJ-c4-xT5" id="krW-PG-KKh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nut-JK-xir">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="uzw-Cu-O9g"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7aX-pW-hGv">
+                    <rect key="frame" x="0.0" y="48" width="320" height="520"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="Nut-JK-xir" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7Pp-pR-r3D"/>
+                <constraint firstItem="7aX-pW-hGv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="97Y-5A-5hD"/>
+                <constraint firstItem="Nut-JK-xir" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CKH-Gx-yiW"/>
+                <constraint firstItem="7aX-pW-hGv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="DvJ-c4-xT5"/>
+                <constraint firstAttribute="trailing" secondItem="7aX-pW-hGv" secondAttribute="trailing" id="mfh-pm-zUJ"/>
+                <constraint firstAttribute="bottom" secondItem="7aX-pW-hGv" secondAttribute="bottom" id="ocr-dx-dx1"/>
+                <constraint firstAttribute="trailing" secondItem="Nut-JK-xir" secondAttribute="trailing" id="qcb-Oq-UoB"/>
+            </constraints>
+            <point key="canvasLocation" x="397" y="543"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

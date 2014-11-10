@@ -88,7 +88,23 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
         if ([responseObject isKindOfClass:[NSArray class]]) {
             NSArray *tweets = [Tweet tweetsWithArray:responseObject];
             completion(tweets, nil);
-            NSLog(@"REPONSE: %@", responseObject);
+            //NSLog(@"REPONSE: %@", responseObject);
+        } else {
+            // TODO: learn how to generate a useful NSError
+            NSLog(@"response failed");
+            completion(nil, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+}
+
+- (void)tweetsFromUserTimeline:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    [self GET:@"1.1/statuses/user_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+            completion(tweets, nil);
+            //NSLog(@"REPONSE: %@", responseObject);
         } else {
             // TODO: learn how to generate a useful NSError
             NSLog(@"response failed");
@@ -139,7 +155,14 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
         NSLog(@"********************RETWEET");
     }
     else {
-        retweetURLString = [NSString stringWithFormat:@"1.1/statuses/destroy/%@.json", tweet.retweetID];
+        NSString *tweetIDtoDestroy;
+        if ([tweet.user.screenname isEqualToString:[User currentUser].screenname]) {
+            tweetIDtoDestroy = tweet.tweetID;
+        }
+        else {
+            tweetIDtoDestroy = tweet.retweetID;
+        }
+        retweetURLString = [NSString stringWithFormat:@"1.1/statuses/destroy/%@.json", tweetIDtoDestroy];
         NSLog(@"********************DESTROYING RETWEET");
     }
     [self POST: retweetURLString parameters:nil

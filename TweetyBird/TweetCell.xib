@@ -193,6 +193,7 @@
                     <constraint firstItem="86O-n7-y7O" firstAttribute="top" secondItem="tpg-zS-Aga" secondAttribute="bottom" constant="8" id="xfS-hT-fvX"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="favoriteButton" destination="1Rh-LA-ihn" id="EMe-JQ-2Pr"/>
                 <outlet property="favoriteCount" destination="ZEt-4B-bFs" id="Uu2-hQ-ezC"/>

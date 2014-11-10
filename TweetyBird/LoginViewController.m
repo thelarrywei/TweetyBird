@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "TwitterClient.h"
-#import "HomeViewController.h"
+#import "HamburgerViewController.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
@@ -17,18 +17,15 @@
 
 @implementation LoginViewController
 
-- (void) beginSession {
-    HomeViewController *vc = [[HomeViewController alloc] init];
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-    NSLog(@"Should launch new view controller");
-    [self presentViewController:nvc animated:YES completion:nil];
-}
 
 - (IBAction)onLogin:(id)sender {
     
     [[TwitterClient sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
         if (user != nil) {
-            [self beginSession];
+            //[self beginSession];
+            HamburgerViewController *vc = [[HamburgerViewController alloc] init];
+            NSLog(@"Should launch new view controller");
+            [self presentViewController:vc animated:YES completion:nil];
         }
         else {
             //TODO give some meaningful error
@@ -39,7 +36,6 @@
 
 
 - (void)viewDidLoad {
-    
     self.loginButton.layer.cornerRadius = 3.0;
     self.loginButton.clipsToBounds = YES;
     [super viewDidLoad];

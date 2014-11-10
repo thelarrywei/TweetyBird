@@ -30,9 +30,10 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogOut) name:USER_DID_LOGOUT_NOTIFICATION object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogIn) name:USER_DID_LOGIN_NOTIFICATION object:nil];
+
+        
     User *user = [User currentUser];
     if (user != nil) {
         NSLog(@"Welcome back, %@", user.name);
@@ -40,8 +41,6 @@
     }
     else {
         NSLog(@"Hello New User. Please log in!");
-        
-        
         LoginViewController *vc = [[LoginViewController alloc] init];
         self.window.rootViewController = vc;
     }
@@ -80,8 +79,12 @@
     return YES;
 }
 
-
 -(void)userDidLogOut{
+    //NSLog(@"*****LOGOUT HAPPENED********");
     self.window.rootViewController = [[LoginViewController alloc] init];
+}
+-(void)userDidLogIn{
+    NSLog(@"*****LOGIN HAPPENED********");
+    //self.window.rootViewController = [[HamburgerViewController alloc] init];
 }
 @end

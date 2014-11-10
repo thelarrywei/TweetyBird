@@ -9,6 +9,8 @@
 #import "HamburgerViewController.h"
 #import "HomeViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "ProfileViewController.h"
+#import "TwitterClient.h"
 
 @interface HamburgerViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *contentContainerView;
@@ -19,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *menuUserHandle;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) NSArray *viewControllers;
 @property (strong, nonatomic) UINavigationController *currentViewController;
 
 @end
@@ -59,17 +62,55 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row < 2) {
+        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:self.viewControllers[indexPath.row]];
+        self.currentViewController = nvc;
+        self.currentViewController.view.frame = self.contentContainerView.bounds;
+        [self.contentContainerView addSubview:self.currentViewController.view];
+        
+    }
+    else if (indexPath.row == 3) {
+        [User setCurrentUser:nil];
+        [[TwitterClient sharedInstance].requestSerializer removeAccessToken];
+        [[NSNotificationCenter defaultCenter] postNotificationName:USER_DID_LOGOUT_NOTIFICATION object:nil];
+        //[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+
+    }
+    [UIView animateWithDuration:.5 delay:0 usingSpringWithDamping:.8 initialSpringVelocity:5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        CGRect frame = self.contentContainerView.frame;
+        frame = self.view.frame;
+        self.contentContainerView.frame = frame;
+    } completion:^(BOOL finished) {
+        NSLog(@"Finished animating");
+    }];
 }
 
 - (void)viewDidLoad {
+    
+    //init view controllers
+    ProfileViewController *profileVC = [[ProfileViewController alloc] init];
+    HomeViewController *homeVC = [[HomeViewController alloc] init];
+    self.viewControllers = [NSArray arrayWithObjects:profileVC, homeVC, nil];
+    
     [super viewDidLoad];
-    HomeViewController *vc = [[HomeViewController alloc] init];
+    ProfileViewController *vc = [[ProfileViewController alloc] init];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     self.currentViewController = nvc;
     self.currentViewController.view.frame = self.contentContainerView.bounds;
     [self.contentContainerView addSubview:self.currentViewController.view];
     
     //Set up menu
+    [self setUpMenu];
+    //tableview
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView reloadData];
+
+    // Do any additional setup after loading the view from its nib.
+    
+}
+
+- (void) setUpMenu {
     User *user = [User currentUser];
     [self.menuProfileImage setImageWithURL: [NSURL URLWithString: user.profileImageURL]];
     [self.menuContentView setBackgroundColor: [UIColor colorWithRed:0.353 green:0.69 blue:1 alpha:.85]];
@@ -79,13 +120,6 @@
     self.menuProfileImage.layer.shadowRadius = 3.0;
     self.menuUserName.text = user.name;
     self.menuUserHandle.text = [NSString stringWithFormat:@"@%@", user.screenname];
-    
-    //tableview
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-
-    // Do any additional setup after loading the view from its nib.
-    
 }
 - (IBAction)onContentPanGesture:(UIPanGestureRecognizer *)sender {
     CGPoint point = [sender locationInView:self.view];
@@ -94,7 +128,10 @@
     NSLog(@"Point x: %f Point y: %f", point.x, point.y);
     NSLog(@"Velocity x: %f, Velocity y: %f", velocity.x, velocity.y);
     
-    if (sender.state == UIGestureRecognizerStateChanged && point.x < self.menuContentView.frame.size.width) {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        [self setUpMenu];
+    }
+    else if (sender.state == UIGestureRecognizerStateChanged && point.x < self.menuContentView.frame.size.width) {
         CGRect frame = self.contentContainerView.frame;
         frame.origin.x += velocity.x/80;
         self.contentContainerView.frame = frame;
@@ -105,6 +142,7 @@
                 CGRect frame = self.contentContainerView.frame;
                 frame = self.view.frame;
                 self.contentContainerView.frame = frame;
+                
             }
             else {
                 CGRect frame = self.contentContainerView.frame;
@@ -114,7 +152,6 @@
                 self.contentContainerView.layer.shadowOffset = CGSizeMake(2, 2);
                 self.contentContainerView.layer.shadowOpacity = .96;
                 self.contentContainerView.layer.shadowRadius = 3.0;
-
             }
         } completion:^(BOOL finished) {
             NSLog(@"Finished animating");

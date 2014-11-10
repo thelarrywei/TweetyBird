@@ -12,6 +12,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "NSDate+TimeAgo.h"
 #import "composerViewController.h"
+#import "LoginViewController.h"
 
 
 
@@ -38,8 +39,9 @@
 - (void) onLogoutButton{
     [User setCurrentUser:nil];
     [[TwitterClient sharedInstance].requestSerializer removeAccessToken];
-    NSLog(@"Logging out");
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:USER_DID_LOGOUT_NOTIFICATION object:nil];
+    //[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
     
 
 }
@@ -76,13 +78,13 @@
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.353 green:0.69 blue:1 alpha:1];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.Title = @"Twitter";
+    self.Title = @"Home Timeline";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     
     self.logoutButton =[[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutButton)];
-    self.navigationItem.leftBarButtonItem = self.logoutButton;
+    //self.navigationItem.leftBarButtonItem = self.logoutButton;
     
-    self.composeButton =[[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(onComposeButton)];
+    self.composeButton =[[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(onComposeButton)];
     self.navigationItem.rightBarButtonItem = self.composeButton;
 
     
@@ -99,6 +101,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self refreshTweets];
     [self.tableView reloadData];
 }
 

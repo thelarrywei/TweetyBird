@@ -31,6 +31,13 @@ NSString * const USER_DID_LOGOUT_NOTIFICATION = @"USER_DID_LOGIN_NOTIFICATION";
         self.screenname = dictionary[@"screen_name"];
         self.profileImageURL = dictionary[@"profile_image_url"];
         self.tagline = dictionary[@"description"];
+        
+        self.headerURL = dictionary[@"profile_background_image_url"];
+        self.tweetCount = [dictionary[@"statuses_count"] intValue];
+        self.followerCount = [dictionary[@"followers_count"] intValue];
+        self.followingCount = [dictionary[@"friends_count"] intValue];
+        
+        
     }
     return self;
 }
@@ -59,13 +66,16 @@ NSString *const kCurrentUserKey = @"current user";
         //NSLog(@"Dictionary: %@", currentUser.dictionary);
         NSData *data = [NSJSONSerialization dataWithJSONObject:currentUser.dictionary options:0 error:NULL];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:kCurrentUserKey];
+        NSLog(@"\nUSER IS NOT NIL\n");
+        [[NSNotificationCenter defaultCenter] postNotificationName:USER_DID_LOGIN_NOTIFICATION object:nil];
     }
     else {
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCurrentUserKey];
+        NSLog(@"\nUSER IS NIL\n");
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:USER_DID_LOGOUT_NOTIFICATION object:nil];
+    
     
 }
 

@@ -10,6 +10,11 @@
 		69C68D20917CB7D737EAEF3A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3C573D91B724839AE71915 /* libPods.a */; };
 		DD2CA55C1A0FE20500467C46 /* HamburgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2CA55A1A0FE20500467C46 /* HamburgerViewController.m */; };
 		DD2CA55D1A0FE20500467C46 /* HamburgerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2CA55B1A0FE20500467C46 /* HamburgerViewController.xib */; };
+		DD2CA5611A10220600467C46 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2CA55F1A10220600467C46 /* ProfileViewController.m */; };
+		DD2CA5621A10220600467C46 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2CA5601A10220600467C46 /* ProfileViewController.xib */; };
+		DD2CA5661A10325A00467C46 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2CA5641A10325A00467C46 /* ProfileCell.m */; };
+		DD2CA5671A10325A00467C46 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2CA5651A10325A00467C46 /* ProfileCell.xib */; };
+		DD2CA56B1A1059C300467C46 /* Twitter_logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2CA56A1A1059C300467C46 /* Twitter_logo_white.png */; };
 		DD3ED5AC1A0693C600360B42 /* favorite_hover.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3ED5A41A0693C600360B42 /* favorite_hover.png */; };
 		DD3ED5AD1A0693C600360B42 /* favorite_on.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3ED5A51A0693C600360B42 /* favorite_on.png */; };
 		DD3ED5AE1A0693C600360B42 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3ED5A61A0693C600360B42 /* favorite.png */; };
@@ -55,6 +60,13 @@
 		DD2CA5591A0FE20500467C46 /* HamburgerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HamburgerViewController.h; sourceTree = "<group>"; };
 		DD2CA55A1A0FE20500467C46 /* HamburgerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HamburgerViewController.m; sourceTree = "<group>"; };
 		DD2CA55B1A0FE20500467C46 /* HamburgerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HamburgerViewController.xib; sourceTree = "<group>"; };
+		DD2CA55E1A10220600467C46 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		DD2CA55F1A10220600467C46 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		DD2CA5601A10220600467C46 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		DD2CA5631A10325A00467C46 /* ProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
+		DD2CA5641A10325A00467C46 /* ProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
+		DD2CA5651A10325A00467C46 /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		DD2CA56A1A1059C300467C46 /* Twitter_logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_white.png; sourceTree = "<group>"; };
 		DD3ED5A41A0693C600360B42 /* favorite_hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_hover.png; sourceTree = "<group>"; };
 		DD3ED5A51A0693C600360B42 /* favorite_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_on.png; sourceTree = "<group>"; };
 		DD3ED5A61A0693C600360B42 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
@@ -139,6 +151,7 @@
 				DD3ED5A51A0693C600360B42 /* favorite_on.png */,
 				DD3ED5A61A0693C600360B42 /* favorite.png */,
 				DD3ED5A71A0693C600360B42 /* reply_hover.png */,
+				DD2CA56A1A1059C300467C46 /* Twitter_logo_white.png */,
 				DD3ED5A81A0693C600360B42 /* reply.png */,
 				DD3ED5A91A0693C600360B42 /* retweet_hover.png */,
 				DD3ED5AA1A0693C600360B42 /* retweet_on.png */,
@@ -153,6 +166,9 @@
 				DD3ED5BA1A06A3CC00360B42 /* TweetCell.h */,
 				DD3ED5BB1A06A3CC00360B42 /* TweetCell.m */,
 				DD3ED5BC1A06A3CC00360B42 /* TweetCell.xib */,
+				DD2CA5631A10325A00467C46 /* ProfileCell.h */,
+				DD2CA5641A10325A00467C46 /* ProfileCell.m */,
+				DD2CA5651A10325A00467C46 /* ProfileCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -244,6 +260,9 @@
 				DDDDFCBC1A0367810029362F /* HomeViewController.m */,
 				DDDDFCBD1A0367810029362F /* HomeViewController.xib */,
 				DD3ED5C41A071A4D00360B42 /* composerViewController.h */,
+				DD2CA55E1A10220600467C46 /* ProfileViewController.h */,
+				DD2CA55F1A10220600467C46 /* ProfileViewController.m */,
+				DD2CA5601A10220600467C46 /* ProfileViewController.xib */,
 				DD3ED5C51A071A4D00360B42 /* composerViewController.m */,
 				DD3ED5C61A071A4D00360B42 /* composerViewController.xib */,
 				DD2CA5591A0FE20500467C46 /* HamburgerViewController.h */,
@@ -350,6 +369,7 @@
 				DDDDFCAE1A00CEDA0029362F /* LoginViewController.xib in Resources */,
 				DD3ED5B31A0693C600360B42 /* retweet.png in Resources */,
 				DD3ED5B01A0693C600360B42 /* reply.png in Resources */,
+				DD2CA56B1A1059C300467C46 /* Twitter_logo_white.png in Resources */,
 				DDDDFC8E1A00CB3F0029362F /* Main.storyboard in Resources */,
 				DDDDFC931A00CB3F0029362F /* LaunchScreen.xib in Resources */,
 				DD2CA55D1A0FE20500467C46 /* HamburgerViewController.xib in Resources */,
@@ -359,6 +379,8 @@
 				DD3ED5BE1A06A3CC00360B42 /* TweetCell.xib in Resources */,
 				DD3ED5AD1A0693C600360B42 /* favorite_on.png in Resources */,
 				DD3ED5AE1A0693C600360B42 /* favorite.png in Resources */,
+				DD2CA5671A10325A00467C46 /* ProfileCell.xib in Resources */,
+				DD2CA5621A10220600467C46 /* ProfileViewController.xib in Resources */,
 				DDDDFCBF1A0367810029362F /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,7 +441,9 @@
 				DD3ED5C71A071A4D00360B42 /* composerViewController.m in Sources */,
 				DDDDFC881A00CB3F0029362F /* AppDelegate.m in Sources */,
 				DDDDFC851A00CB3F0029362F /* main.m in Sources */,
+				DD2CA5661A10325A00467C46 /* ProfileCell.m in Sources */,
 				DDDDFCBE1A0367810029362F /* HomeViewController.m in Sources */,
+				DD2CA5611A10220600467C46 /* ProfileViewController.m in Sources */,
 				DD2CA55C1A0FE20500467C46 /* HamburgerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

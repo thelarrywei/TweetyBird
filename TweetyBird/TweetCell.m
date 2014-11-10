@@ -76,18 +76,18 @@
     
     
     if (self.displayTweet.userFavorited) {
-        NSLog(@"Is favorited");
+        //NSLog(@"Is favorited");
         [self.favoriteButton setImage:favorite_on forState:UIControlStateNormal];
     } else {
-        NSLog(@"Is not favorited");
+        //NSLog(@"Is not favorited");
         [self.favoriteButton setImage:favorite_off forState:UIControlStateNormal];
     }
     
     if (self.tweet.userRetweeted) {
-        NSLog(@"Is retweeted");
+        //NSLog(@"Is retweeted");
         [self.retweetButton setImage:retweet_on forState:UIControlStateNormal];
     } else {
-        NSLog(@"Is not retweeted");
+        //NSLog(@"Is not retweeted");
         [self.retweetButton setImage:retweet_off forState:UIControlStateNormal];
     }
     
@@ -95,7 +95,7 @@
     if (self.tweet.retweetCount > 0) {
         self.retweetCount.text = [NSString stringWithFormat:@"%ld", self.tweet.retweetCount];
         self.retweetCount.hidden = NO;
-        NSLog(@"%@ shows %ld retweets", self.displayTweet.user.name, self.tweet.retweetCount);
+        //NSLog(@"%@ shows %ld retweets", self.displayTweet.user.name, self.tweet.retweetCount);
     }
     else {
         self.retweetCount.hidden = YES;
@@ -103,7 +103,7 @@
     if (self.displayTweet.favoriteCount > 0) {
         self.favoriteCount.text = [NSString stringWithFormat:@"%ld", self.displayTweet.favoriteCount];
         self.favoriteCount.hidden = NO;
-        NSLog(@"%@ shows %ld favorites", self.displayTweet.user.name, self.displayTweet.favoriteCount);
+        //NSLog(@"%@ shows %ld favorites", self.displayTweet.user.name, self.displayTweet.favoriteCount);
     }
     else {
         self.favoriteCount.hidden = YES;
@@ -124,7 +124,7 @@
         self.displayTweet = tweet.retweet;
         self.userImageTopMargin.constant = 15;
         self.retweetedLabel.text = [NSString stringWithFormat:@"%@ retweeted", tweet.user.name];
-        NSLog(@"%@, %@", tweet.user.name, tweet.user.screenname);
+        //NSLog(@"%@, %@", tweet.user.name, tweet.user.screenname);
         self.retweetedButton.hidden = NO;
         self.retweetedLabel.hidden = NO;
     }
@@ -153,7 +153,7 @@
     self.tweetLabel.text = self.displayTweet.text;
     
     //time
-    self.timestampLabel.text = [self getTimeAgo:self.tweet.createdAt];
+    self.timestampLabel.text = [self getTimeAgo:self.displayTweet.createdAt];
 
 }
 

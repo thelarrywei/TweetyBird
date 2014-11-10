@@ -21,6 +21,8 @@
 - (void)openURL:(NSURL *)url;
 
 - (void)tweetsFromTimeline:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion;
+- (void)tweetsFromUserTimeline:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion;
+
 
 - (void) favorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 
