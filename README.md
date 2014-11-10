@@ -29,3 +29,13 @@ Optional: Account switching
 
 ## Walkthrough
 ![GIF Walkthrough](TweetyBird.gif)
+
+##Credits
+---------
+* [Twitter API](http://developer.rottentomatoes.com/docs)
+* [BDBOAuth1Manager](https://github.com/bdbergeron/BDBOAuth1Manager)
+* [LiceCap](http://www.cockos.com/licecap/)
+* [CocoaPods](https://github.com/cocoapods/cocoapods)
+* [NSDate-Time-Ago](https://github.com/nikilster/NSDate-Time-Ago)
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+
